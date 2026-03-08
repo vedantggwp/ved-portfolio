@@ -1,7 +1,7 @@
 # Requirements: Ved Portfolio
 
 **Defined:** 2026-03-08
-**Core Value:** The site must communicate "I don't build what's expected. I build what's needed" through its structure — the experience is proof of cross-domain thinking.
+**Core Value:** The site must communicate "I don't build what's expected. I build what's needed" through its structure -- the experience is proof of cross-domain thinking.
 
 ## v1 Requirements
 
@@ -12,7 +12,7 @@
 - [ ] **FOUND-03**: Mutable scroll store drives all 60fps values (never React state)
 - [ ] **FOUND-04**: Fixed R3F Canvas behind scrollable DOM sections
 - [ ] **FOUND-05**: prefers-reduced-motion detected and respected from first render
-- [ ] **FOUND-06**: SSR-safe boundaries — all WebGL/audio components client-only
+- [ ] **FOUND-06**: SSR-safe boundaries -- all WebGL/audio components client-only
 
 ### Monolith
 
@@ -20,22 +20,22 @@
 - [ ] **MONO-02**: Monolith morphs from abstract/minimal to complex/faceted driven by scroll progress
 - [ ] **MONO-03**: Imperceptible slow rotation
 - [ ] **MONO-04**: Amber fresnel edge glow that intensifies with morph
-- [ ] **MONO-05**: Final form still suggests unseen geometry — never fully resolved
+- [ ] **MONO-05**: Final form still suggests unseen geometry -- never fully resolved
 - [ ] **MONO-06**: Cinematic single-source warm lighting with subtle breathing
 
 ### Scroll Navigation
 
-- [ ] **SCRL-01**: Depth-based navigation: Surface → Transition 1 → Mid-Depth (3 pockets) → Transition 2 → Deep → Floor
+- [ ] **SCRL-01**: Depth-based navigation: Surface -> Transition 1 -> Mid-Depth (3 pockets) -> Transition 2 -> Deep -> Floor
 - [ ] **SCRL-02**: Camera moves forward (z-axis) on scroll creating dive-into-depth feeling
 - [ ] **SCRL-03**: Sections pin via ScrollTrigger with scrub
-- [ ] **SCRL-04**: Variable scroll physics per section — fluid (teal), dense (amber), still (navy)
+- [ ] **SCRL-04**: Variable scroll physics per section -- fluid (teal), dense (amber), still (navy)
 - [ ] **SCRL-05**: Transition zones have scroll resistance (membrane effect) then release
 
 ### Surface Layer
 
-- [ ] **SURF-01**: Provocation text (uniquely Ved) fades in over the monolith — not a bio
+- [ ] **SURF-01**: Provocation text (uniquely Ved) fades in over the monolith -- not a bio
 - [ ] **SURF-02**: Text fades up and out as user begins scrolling
-- [ ] **SURF-03**: No name, title, or CTA on surface — just the provocation
+- [ ] **SURF-03**: No name, title, or CTA on surface -- just the provocation
 
 ### Mid-Depth Layer
 
@@ -56,9 +56,9 @@
 ### Deep Layer
 
 - [ ] **DEEP-01**: Project showcases scroll in as discoveries with per-project scroll animation
-- [ ] **DEEP-02**: Each project: provocative frame → title → description → proof
+- [ ] **DEEP-02**: Each project: provocative frame -> title -> description -> proof
 - [ ] **DEEP-03**: Featured projects: NeuroEdge, Discovery Simulator, FraudShieldAI, Scrollwise
-- [ ] **DEEP-04**: Monolith final form appears — complex geometry, structured internal light
+- [ ] **DEEP-04**: Monolith final form appears -- complex geometry, structured internal light
 
 ### Floor
 
@@ -67,14 +67,14 @@
 
 ### Audio
 
-- [ ] **AUDI-01**: Sound toggle: pulsing waveform icon in corner — invitation, not permission
+- [ ] **AUDI-01**: Sound toggle: pulsing waveform icon in corner -- invitation, not permission
 - [ ] **AUDI-02**: Sub-bass drone with scroll-reactive filter (opens as user goes deeper)
 - [ ] **AUDI-03**: Tonal shifts at depth thresholds
 - [ ] **AUDI-04**: Long fade to silence at floor
 
 ### Accessibility
 
-- [ ] **A11Y-01**: prefers-reduced-motion: disable 3D, animations, particles — show content statically
+- [ ] **A11Y-01**: prefers-reduced-motion: disable 3D, animations, particles -- show content statically
 - [ ] **A11Y-02**: Keyboard navigation through all scroll sections
 - [ ] **A11Y-03**: ARIA landmarks and screen reader alternatives for visual content
 - [ ] **A11Y-04**: Skip links ("Skip to projects", "Skip to contact")
@@ -83,7 +83,7 @@
 
 ### Mobile
 
-- [ ] **MOBL-01**: WebGL capability detection — don't load R3F Canvas on incapable devices
+- [ ] **MOBL-01**: WebGL capability detection -- don't load R3F Canvas on incapable devices
 - [ ] **MOBL-02**: CSS parallax fallback that communicates depth without WebGL
 - [ ] **MOBL-03**: Touch-optimized scroll physics
 - [ ] **MOBL-04**: All content accessible and readable on mobile
@@ -127,7 +127,7 @@
 | Multi-language | English only |
 | Dark/light toggle | The site IS the dark theme by design |
 | Project filtering/search | Curated selection, not a catalog |
-| Custom cursor | Anti-pattern per research — distracts from content |
+| Custom cursor | Anti-pattern per research -- distracts from content |
 | Scroll progress indicator | Undermines the depth discovery experience |
 | Tech stack badges | Explicitly against design philosophy |
 | Particle background on hero | "That's everybody. That's mediocrity wearing a hoodie." |
@@ -136,13 +136,68 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (Populated during roadmap creation) | | |
+| FOUND-01 | Phase 1 | Pending |
+| FOUND-02 | Phase 1 | Pending |
+| FOUND-03 | Phase 1 | Pending |
+| FOUND-04 | Phase 1 | Pending |
+| FOUND-05 | Phase 1 | Pending |
+| FOUND-06 | Phase 1 | Pending |
+| SCRL-01 | Phase 1 | Pending |
+| SCRL-02 | Phase 1 | Pending |
+| SCRL-03 | Phase 1 | Pending |
+| SCRL-04 | Phase 1 | Pending |
+| SCRL-05 | Phase 1 | Pending |
+| A11Y-01 | Phase 1 | Pending |
+| A11Y-02 | Phase 1 | Pending |
+| A11Y-03 | Phase 1 | Pending |
+| A11Y-04 | Phase 1 | Pending |
+| A11Y-05 | Phase 1 | Pending |
+| A11Y-06 | Phase 1 | Pending |
+| PERF-02 | Phase 1 | Pending |
+| PERF-03 | Phase 1 | Pending |
+| MONO-01 | Phase 2 | Pending |
+| MONO-02 | Phase 2 | Pending |
+| MONO-03 | Phase 2 | Pending |
+| MONO-04 | Phase 2 | Pending |
+| MONO-05 | Phase 2 | Pending |
+| MONO-06 | Phase 2 | Pending |
+| TRAN-01 | Phase 2 | Pending |
+| TRAN-02 | Phase 2 | Pending |
+| TRAN-03 | Phase 2 | Pending |
+| TRAN-04 | Phase 2 | Pending |
+| SURF-01 | Phase 3 | Pending |
+| SURF-02 | Phase 3 | Pending |
+| SURF-03 | Phase 3 | Pending |
+| MID-01 | Phase 3 | Pending |
+| MID-02 | Phase 3 | Pending |
+| MID-03 | Phase 3 | Pending |
+| MID-04 | Phase 3 | Pending |
+| MID-05 | Phase 3 | Pending |
+| MID-06 | Phase 3 | Pending |
+| DEEP-01 | Phase 3 | Pending |
+| DEEP-02 | Phase 3 | Pending |
+| DEEP-03 | Phase 3 | Pending |
+| DEEP-04 | Phase 3 | Pending |
+| FLOR-01 | Phase 3 | Pending |
+| FLOR-02 | Phase 3 | Pending |
+| MOBL-01 | Phase 3 | Pending |
+| MOBL-02 | Phase 3 | Pending |
+| MOBL-03 | Phase 3 | Pending |
+| MOBL-04 | Phase 3 | Pending |
+| PERF-01 | Phase 3 | Pending |
+| PERF-04 | Phase 3 | Pending |
+| DEPL-01 | Phase 3 | Pending |
+| DEPL-02 | Phase 3 | Pending |
+| AUDI-01 | Phase 4 | Pending |
+| AUDI-02 | Phase 4 | Pending |
+| AUDI-03 | Phase 4 | Pending |
+| AUDI-04 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 47 total
-- Mapped to phases: 0
-- Unmapped: 47
+- v1 requirements: 56 total
+- Mapped to phases: 56
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-08*
-*Last updated: 2026-03-08 after initial definition*
+*Last updated: 2026-03-08 after roadmap creation*
