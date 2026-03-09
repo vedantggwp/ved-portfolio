@@ -7,10 +7,56 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { scrollStore, updateScrollStore } from '@/lib/scroll-store'
-import { SCROLL_PHYSICS } from '@/lib/scroll-physics'
+import {
+  SCROLL_PHYSICS,
+  TRANSITION_RESISTANCE,
+  ASCENT_RESISTANCE_MULTIPLIER,
+} from '@/lib/scroll-physics'
 import { SECTIONS } from '@/lib/sections'
 
 gsap.registerPlugin(ScrollTrigger)
+
+/**
+ * Calculate transition membrane resistance multiplier.
+ * Returns a value between 0-1 where lower = more resistance.
+ * Non-transition sections return 1 (no resistance).
+ *
+ * Build phase: resistance increases via sine curve up to releasePoint.
+ * Release phase: resistance drops rapidly back to 1 (the "pop" through).
+ * Ascending direction gets 50% less resistance (surfacing = relief).
+ */
+export function getTransitionResistance(
+  progress: number,
+  direction: number,
+  transitionId: string
+): number {
+  const config = TRANSITION_RESISTANCE[transitionId]
+  if (!config) return 1
+
+  const dirMultiplier =
+    direction === -1 ? ASCENT_RESISTANCE_MULTIPLIER : 1.0
+
+  if (progress < config.releasePoint) {
+    // Build phase: resistance increases via sine curve
+    const buildProgress = progress / config.releasePoint
+    return (
+      1 -
+      (1 - config.basePeak) *
+        Math.sin(buildProgress * Math.PI * 0.5) *
+        dirMultiplier
+    )
+  }
+
+  // Release phase: resistance drops rapidly back to 1 (the "pop")
+  const releaseProgress =
+    (progress - config.releasePoint) / (1 - config.releasePoint)
+  const currentResistance =
+    1 -
+    (1 - config.basePeak) *
+      Math.sin(1 * Math.PI * 0.5) *
+      dirMultiplier
+  return currentResistance + (1 - currentResistance) * releaseProgress
+}
 
 type ScrollEngineProps = {
   readonly children: React.ReactNode
@@ -44,7 +90,7 @@ export function ScrollEngine({ children }: ScrollEngineProps) {
     gsap.ticker.add(tickerCallback)
     gsap.ticker.lagSmoothing(0)
 
-    // Update mutable scroll store on each scroll event
+    // Update mutable scroll store and apply membrane resistance on each scroll event
     lenis.on(
       'scroll',
       ({
@@ -57,14 +103,31 @@ export function ScrollEngine({ children }: ScrollEngineProps) {
         direction: number
       }) => {
         updateScrollStore({ progress, velocity, direction })
+
+        // Apply transition membrane resistance to Lenis wheel multiplier
+        const currentSection = scrollStore.section
+        const resistance = getTransitionResistance(
+          scrollStore.sectionProgress,
+          direction,
+          currentSection
+        )
+
+        if (TRANSITION_RESISTANCE[currentSection]) {
+          lenis.options.wheelMultiplier = resistance
+          lenis.options.touchMultiplier = resistance
+        } else {
+          lenis.options.wheelMultiplier = 1
+          lenis.options.touchMultiplier = 1
+        }
       }
     )
 
-    // Expose scroll store on window for e2e tests
+    // Expose scroll store and resistance function on window for e2e tests
     if (typeof window !== 'undefined') {
       const win = window as unknown as Record<string, unknown>
       win.__scrollStore = scrollStore
       win.__SCROLL_STORE_READS__ = 0
+      win.__getTransitionResistance = getTransitionResistance
     }
 
     return () => {

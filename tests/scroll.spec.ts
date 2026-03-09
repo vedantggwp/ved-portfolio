@@ -101,6 +101,82 @@ test.describe('Scroll Engine', () => {
     expect(progress).toBeGreaterThan(0.5)
   })
 
+  test('variable -- different scroll distances per section type', async ({
+    page,
+  }) => {
+    await page.goto('/')
+    await page.waitForLoadState('domcontentloaded')
+    await page.waitForTimeout(1000)
+
+    // Scroll to surface section and measure its scroll end distance
+    const surfaceEnd = await page.evaluate(() => {
+      const el = document.getElementById('surface')
+      if (!el) return 0
+      // GSAP ScrollTrigger creates pin-spacer with height proportional to end value
+      const pinSpacer = el.closest('.pin-spacer') as HTMLElement | null
+      return pinSpacer ? pinSpacer.offsetHeight : el.offsetHeight
+    })
+
+    // Scroll to pocket-1 and measure its scroll distance
+    await scrollToSection(page, 'pocket-1')
+    const pocketEnd = await page.evaluate(() => {
+      const el = document.getElementById('pocket-1')
+      if (!el) return 0
+      const pinSpacer = el.closest('.pin-spacer') as HTMLElement | null
+      return pinSpacer ? pinSpacer.offsetHeight : el.offsetHeight
+    })
+
+    // Pocket-1 should require more scroll distance than surface (1.5x vs 1x)
+    expect(pocketEnd).toBeGreaterThan(surfaceEnd)
+  })
+
+  test('membrane -- transition resistance function produces correct values', async ({
+    page,
+  }) => {
+    await page.goto('/')
+    await page.waitForLoadState('domcontentloaded')
+    await page.waitForTimeout(1000)
+
+    // Test the getTransitionResistance function exposed on window
+    const results = await page.evaluate(() => {
+      const win = window as unknown as Record<string, unknown>
+      const getResistance = win.__getTransitionResistance as (
+        p: number,
+        d: number,
+        id: string
+      ) => number
+
+      if (!getResistance) return null
+
+      return {
+        // Non-transition section returns 1 (no resistance)
+        nonTransition: getResistance(0.5, 1, 'surface'),
+        // Transition-1 mid-build descending: should be < 1
+        t1MidDesc: getResistance(0.4, 1, 'transition-1'),
+        // Transition-2 mid-build descending: should be < t1 (heavier)
+        t2MidDesc: getResistance(0.4, 1, 'transition-2'),
+        // Transition-1 ascending: should have less resistance than descending
+        t1MidAsc: getResistance(0.4, -1, 'transition-1'),
+        // Transition-1 release phase: should be closer to 1 (the "pop")
+        t1Release: getResistance(0.95, 1, 'transition-1'),
+      }
+    })
+
+    expect(results).not.toBeNull()
+    if (!results) return
+
+    // Non-transition: no resistance
+    expect(results.nonTransition).toBe(1)
+    // Transition-1 descending build: resistance applied (< 1)
+    expect(results.t1MidDesc).toBeLessThan(1)
+    // Transition-2 is heavier than Transition-1 (lower value = more resistance)
+    expect(results.t2MidDesc).toBeLessThan(results.t1MidDesc)
+    // Ascending has less resistance than descending (value closer to 1)
+    expect(results.t1MidAsc).toBeGreaterThan(results.t1MidDesc)
+    // Release phase should be closer to 1 (popping through)
+    expect(results.t1Release).toBeGreaterThan(results.t1MidDesc)
+  })
+
   test('pin -- content sections pin during scroll', async ({ page }) => {
     await page.goto('/')
     await page.waitForLoadState('domcontentloaded')
