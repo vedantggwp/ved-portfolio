@@ -28,8 +28,8 @@
 - [x] **SCRL-01**: Depth-based navigation: Surface -> Transition 1 -> Mid-Depth (3 pockets) -> Transition 2 -> Deep -> Floor
 - [ ] **SCRL-02**: Camera moves forward (z-axis) on scroll creating dive-into-depth feeling
 - [x] **SCRL-03**: Sections pin via ScrollTrigger with scrub
-- [ ] **SCRL-04**: Variable scroll physics per section -- fluid (teal), dense (amber), still (navy)
-- [ ] **SCRL-05**: Transition zones have scroll resistance (membrane effect) then release
+- [x] **SCRL-04**: Variable scroll physics per section -- fluid (teal), dense (amber), still (navy)
+- [x] **SCRL-05**: Transition zones have scroll resistance (membrane effect) then release
 
 ### Surface Layer
 
@@ -91,8 +91,8 @@
 ### Performance
 
 - [ ] **PERF-01**: Lighthouse Performance 90+ on desktop
-- [ ] **PERF-02**: Progressive loading per depth layer (lazy mount approaching sections)
-- [ ] **PERF-03**: Adaptive DPR based on frame rate (PerformanceMonitor)
+- [x] **PERF-02**: Progressive loading per depth layer (lazy mount approaching sections)
+- [x] **PERF-03**: Adaptive DPR based on frame rate (PerformanceMonitor)
 - [ ] **PERF-04**: Monolith geometry LOD reduces on lower-power devices
 
 ### Deployment
@@ -150,10 +150,10 @@
 | SCRL-01 | Phase 2 | Complete |
 | SCRL-02 | Phase 2 | Pending |
 | SCRL-03 | Phase 2 | Complete |
-| SCRL-04 | Phase 2 | Pending |
-| SCRL-05 | Phase 2 | Pending |
-| PERF-02 | Phase 2 | Pending |
-| PERF-03 | Phase 2 | Pending |
+| SCRL-04 | Phase 2 | Complete |
+| SCRL-05 | Phase 2 | Complete |
+| PERF-02 | Phase 2 | Complete |
+| PERF-03 | Phase 2 | Complete |
 | FOUND-04 | Phase 3 | Pending |
 | MONO-01 | Phase 3 | Pending |
 | MONO-02 | Phase 3 | Pending |

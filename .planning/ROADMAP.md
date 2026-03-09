@@ -13,7 +13,7 @@ A 10-phase build of a 3D scrollytelling portfolio with depth-based navigation an
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Scaffold + Fonts + A11Y Primitives** - Next.js project with typography, dark palette, SSR-safe boundaries, and accessibility foundations
-- [ ] **Phase 2: Scroll Engine** - Lenis + GSAP ScrollTrigger with mutable scroll store, variable physics, and progressive loading
+- [x] **Phase 2: Scroll Engine** - Lenis + GSAP ScrollTrigger with mutable scroll store, variable physics, and progressive loading (completed 2026-03-09)
 - [ ] **Phase 3: R3F Canvas + Monolith Foundation** - Fixed canvas layer with GLSL monolith geometry, scroll-driven morph, and cinematic lighting
 - [ ] **Phase 4: Surface Layer** - Provocation text over the monolith with scroll-linked fade
 - [ ] **Phase 5: Mid-Depth Layer** - Three depth pockets with per-pocket color shifts and monolith evolution
@@ -181,7 +181,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 & 9 (paral
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Scaffold + Fonts + A11Y Primitives | 0/2 | Not started | - |
-| 2. Scroll Engine | 1/2 | In progress | - |
+| 2. Scroll Engine | 2/2 | Complete   | 2026-03-09 |
 | 3. R3F Canvas + Monolith Foundation | 0/2 | Not started | - |
 | 4. Surface Layer | 0/1 | Not started | - |
 | 5. Mid-Depth Layer | 0/2 | Not started | - |
