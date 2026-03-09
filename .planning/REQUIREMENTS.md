@@ -7,12 +7,12 @@
 
 ### Foundation
 
-- [ ] **FOUND-01**: Site loads on a dark warm background (#0A0A0A) with editorial serif + sans-serif typography
+- [x] **FOUND-01**: Site loads on a dark warm background (#0A0A0A) with editorial serif + sans-serif typography
 - [ ] **FOUND-02**: Smooth scroll via Lenis synced with GSAP ScrollTrigger without desync
 - [ ] **FOUND-03**: Mutable scroll store drives all 60fps values (never React state)
 - [ ] **FOUND-04**: Fixed R3F Canvas behind scrollable DOM sections
-- [ ] **FOUND-05**: prefers-reduced-motion detected and respected from first render
-- [ ] **FOUND-06**: SSR-safe boundaries -- all WebGL/audio components client-only
+- [x] **FOUND-05**: prefers-reduced-motion detected and respected from first render
+- [x] **FOUND-06**: SSR-safe boundaries -- all WebGL/audio components client-only
 
 ### Monolith
 
@@ -136,9 +136,9 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
-| FOUND-05 | Phase 1 | Pending |
-| FOUND-06 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
+| FOUND-05 | Phase 1 | Complete |
+| FOUND-06 | Phase 1 | Complete |
 | A11Y-01 | Phase 1 | Pending |
 | A11Y-02 | Phase 1 | Pending |
 | A11Y-03 | Phase 1 | Pending |
