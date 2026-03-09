@@ -74,12 +74,12 @@
 
 ### Accessibility
 
-- [ ] **A11Y-01**: prefers-reduced-motion: disable 3D, animations, particles -- show content statically
-- [ ] **A11Y-02**: Keyboard navigation through all scroll sections
-- [ ] **A11Y-03**: ARIA landmarks and screen reader alternatives for visual content
-- [ ] **A11Y-04**: Skip links ("Skip to projects", "Skip to contact")
-- [ ] **A11Y-05**: All text meets WCAG AA contrast ratios
-- [ ] **A11Y-06**: Focus styles on all interactive elements
+- [x] **A11Y-01**: prefers-reduced-motion: disable 3D, animations, particles -- show content statically
+- [x] **A11Y-02**: Keyboard navigation through all scroll sections
+- [x] **A11Y-03**: ARIA landmarks and screen reader alternatives for visual content
+- [x] **A11Y-04**: Skip links ("Skip to projects", "Skip to contact")
+- [x] **A11Y-05**: All text meets WCAG AA contrast ratios
+- [x] **A11Y-06**: Focus styles on all interactive elements
 
 ### Mobile
 
@@ -139,12 +139,12 @@
 | FOUND-01 | Phase 1 | Complete |
 | FOUND-05 | Phase 1 | Complete |
 | FOUND-06 | Phase 1 | Complete |
-| A11Y-01 | Phase 1 | Pending |
-| A11Y-02 | Phase 1 | Pending |
-| A11Y-03 | Phase 1 | Pending |
-| A11Y-04 | Phase 1 | Pending |
-| A11Y-05 | Phase 1 | Pending |
-| A11Y-06 | Phase 1 | Pending |
+| A11Y-01 | Phase 1 | Complete |
+| A11Y-02 | Phase 1 | Complete |
+| A11Y-03 | Phase 1 | Complete |
+| A11Y-04 | Phase 1 | Complete |
+| A11Y-05 | Phase 1 | Complete |
+| A11Y-06 | Phase 1 | Complete |
 | FOUND-02 | Phase 2 | Pending |
 | FOUND-03 | Phase 2 | Pending |
 | SCRL-01 | Phase 2 | Pending |
