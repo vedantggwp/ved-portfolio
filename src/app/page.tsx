@@ -1,7 +1,12 @@
+import { SECTIONS } from '@/lib/sections'
+import { SectionShell } from '@/components/SectionShell'
+
 export default function Home() {
   return (
-    <div>
-      <h1>Ved Gaikwad</h1>
-    </div>
+    <>
+      {SECTIONS.map((section) => (
+        <SectionShell key={section.id} section={section} />
+      ))}
+    </>
   )
 }
