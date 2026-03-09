@@ -137,61 +137,61 @@
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | FOUND-01 | Phase 1 | Pending |
-| FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
-| FOUND-04 | Phase 1 | Pending |
 | FOUND-05 | Phase 1 | Pending |
 | FOUND-06 | Phase 1 | Pending |
-| SCRL-01 | Phase 1 | Pending |
-| SCRL-02 | Phase 1 | Pending |
-| SCRL-03 | Phase 1 | Pending |
-| SCRL-04 | Phase 1 | Pending |
-| SCRL-05 | Phase 1 | Pending |
 | A11Y-01 | Phase 1 | Pending |
 | A11Y-02 | Phase 1 | Pending |
 | A11Y-03 | Phase 1 | Pending |
 | A11Y-04 | Phase 1 | Pending |
 | A11Y-05 | Phase 1 | Pending |
 | A11Y-06 | Phase 1 | Pending |
-| PERF-02 | Phase 1 | Pending |
-| PERF-03 | Phase 1 | Pending |
-| MONO-01 | Phase 2 | Pending |
-| MONO-02 | Phase 2 | Pending |
-| MONO-03 | Phase 2 | Pending |
-| MONO-04 | Phase 2 | Pending |
-| MONO-05 | Phase 2 | Pending |
-| MONO-06 | Phase 2 | Pending |
-| TRAN-01 | Phase 2 | Pending |
-| TRAN-02 | Phase 2 | Pending |
-| TRAN-03 | Phase 2 | Pending |
-| TRAN-04 | Phase 2 | Pending |
-| SURF-01 | Phase 3 | Pending |
-| SURF-02 | Phase 3 | Pending |
-| SURF-03 | Phase 3 | Pending |
-| MID-01 | Phase 3 | Pending |
-| MID-02 | Phase 3 | Pending |
-| MID-03 | Phase 3 | Pending |
-| MID-04 | Phase 3 | Pending |
-| MID-05 | Phase 3 | Pending |
-| MID-06 | Phase 3 | Pending |
-| DEEP-01 | Phase 3 | Pending |
-| DEEP-02 | Phase 3 | Pending |
-| DEEP-03 | Phase 3 | Pending |
-| DEEP-04 | Phase 3 | Pending |
-| FLOR-01 | Phase 3 | Pending |
-| FLOR-02 | Phase 3 | Pending |
-| MOBL-01 | Phase 3 | Pending |
-| MOBL-02 | Phase 3 | Pending |
-| MOBL-03 | Phase 3 | Pending |
-| MOBL-04 | Phase 3 | Pending |
-| PERF-01 | Phase 3 | Pending |
-| PERF-04 | Phase 3 | Pending |
-| DEPL-01 | Phase 3 | Pending |
-| DEPL-02 | Phase 3 | Pending |
-| AUDI-01 | Phase 4 | Pending |
-| AUDI-02 | Phase 4 | Pending |
-| AUDI-03 | Phase 4 | Pending |
-| AUDI-04 | Phase 4 | Pending |
+| FOUND-02 | Phase 2 | Pending |
+| FOUND-03 | Phase 2 | Pending |
+| SCRL-01 | Phase 2 | Pending |
+| SCRL-02 | Phase 2 | Pending |
+| SCRL-03 | Phase 2 | Pending |
+| SCRL-04 | Phase 2 | Pending |
+| SCRL-05 | Phase 2 | Pending |
+| PERF-02 | Phase 2 | Pending |
+| PERF-03 | Phase 2 | Pending |
+| FOUND-04 | Phase 3 | Pending |
+| MONO-01 | Phase 3 | Pending |
+| MONO-02 | Phase 3 | Pending |
+| MONO-03 | Phase 3 | Pending |
+| MONO-04 | Phase 3 | Pending |
+| MONO-05 | Phase 3 | Pending |
+| MONO-06 | Phase 3 | Pending |
+| SURF-01 | Phase 4 | Pending |
+| SURF-02 | Phase 4 | Pending |
+| SURF-03 | Phase 4 | Pending |
+| MID-01 | Phase 5 | Pending |
+| MID-02 | Phase 5 | Pending |
+| MID-03 | Phase 5 | Pending |
+| MID-04 | Phase 5 | Pending |
+| MID-05 | Phase 5 | Pending |
+| MID-06 | Phase 5 | Pending |
+| TRAN-01 | Phase 6 | Pending |
+| TRAN-02 | Phase 6 | Pending |
+| TRAN-03 | Phase 6 | Pending |
+| TRAN-04 | Phase 6 | Pending |
+| DEEP-01 | Phase 7 | Pending |
+| DEEP-02 | Phase 7 | Pending |
+| DEEP-03 | Phase 7 | Pending |
+| DEEP-04 | Phase 7 | Pending |
+| FLOR-01 | Phase 7 | Pending |
+| FLOR-02 | Phase 7 | Pending |
+| MOBL-01 | Phase 8 | Pending |
+| MOBL-02 | Phase 8 | Pending |
+| MOBL-03 | Phase 8 | Pending |
+| MOBL-04 | Phase 8 | Pending |
+| PERF-01 | Phase 8 | Pending |
+| PERF-04 | Phase 8 | Pending |
+| AUDI-01 | Phase 9 | Pending |
+| AUDI-02 | Phase 9 | Pending |
+| AUDI-03 | Phase 9 | Pending |
+| AUDI-04 | Phase 9 | Pending |
+| DEPL-01 | Phase 10 | Pending |
+| DEPL-02 | Phase 10 | Pending |
 
 **Coverage:**
 - v1 requirements: 56 total
@@ -200,4 +200,4 @@
 
 ---
 *Requirements defined: 2026-03-08*
-*Last updated: 2026-03-08 after roadmap creation*
+*Last updated: 2026-03-09 after roadmap restructuring (4 phases -> 10 phases)*
