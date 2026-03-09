@@ -8,8 +8,8 @@
 ### Foundation
 
 - [x] **FOUND-01**: Site loads on a dark warm background (#0A0A0A) with editorial serif + sans-serif typography
-- [ ] **FOUND-02**: Smooth scroll via Lenis synced with GSAP ScrollTrigger without desync
-- [ ] **FOUND-03**: Mutable scroll store drives all 60fps values (never React state)
+- [x] **FOUND-02**: Smooth scroll via Lenis synced with GSAP ScrollTrigger without desync
+- [x] **FOUND-03**: Mutable scroll store drives all 60fps values (never React state)
 - [ ] **FOUND-04**: Fixed R3F Canvas behind scrollable DOM sections
 - [x] **FOUND-05**: prefers-reduced-motion detected and respected from first render
 - [x] **FOUND-06**: SSR-safe boundaries -- all WebGL/audio components client-only
@@ -25,9 +25,9 @@
 
 ### Scroll Navigation
 
-- [ ] **SCRL-01**: Depth-based navigation: Surface -> Transition 1 -> Mid-Depth (3 pockets) -> Transition 2 -> Deep -> Floor
+- [x] **SCRL-01**: Depth-based navigation: Surface -> Transition 1 -> Mid-Depth (3 pockets) -> Transition 2 -> Deep -> Floor
 - [ ] **SCRL-02**: Camera moves forward (z-axis) on scroll creating dive-into-depth feeling
-- [ ] **SCRL-03**: Sections pin via ScrollTrigger with scrub
+- [x] **SCRL-03**: Sections pin via ScrollTrigger with scrub
 - [ ] **SCRL-04**: Variable scroll physics per section -- fluid (teal), dense (amber), still (navy)
 - [ ] **SCRL-05**: Transition zones have scroll resistance (membrane effect) then release
 
@@ -145,11 +145,11 @@
 | A11Y-04 | Phase 1 | Complete |
 | A11Y-05 | Phase 1 | Complete |
 | A11Y-06 | Phase 1 | Complete |
-| FOUND-02 | Phase 2 | Pending |
-| FOUND-03 | Phase 2 | Pending |
-| SCRL-01 | Phase 2 | Pending |
+| FOUND-02 | Phase 2 | Complete |
+| FOUND-03 | Phase 2 | Complete |
+| SCRL-01 | Phase 2 | Complete |
 | SCRL-02 | Phase 2 | Pending |
-| SCRL-03 | Phase 2 | Pending |
+| SCRL-03 | Phase 2 | Complete |
 | SCRL-04 | Phase 2 | Pending |
 | SCRL-05 | Phase 2 | Pending |
 | PERF-02 | Phase 2 | Pending |

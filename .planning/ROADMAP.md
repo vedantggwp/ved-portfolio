@@ -181,7 +181,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 & 9 (paral
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Scaffold + Fonts + A11Y Primitives | 0/2 | Not started | - |
-| 2. Scroll Engine | 0/2 | Not started | - |
+| 2. Scroll Engine | 1/2 | In progress | - |
 | 3. R3F Canvas + Monolith Foundation | 0/2 | Not started | - |
 | 4. Surface Layer | 0/1 | Not started | - |
 | 5. Mid-Depth Layer | 0/2 | Not started | - |
