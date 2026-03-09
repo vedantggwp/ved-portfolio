@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-02-PLAN.md
-last_updated: "2026-03-09T13:28:12.232Z"
-last_activity: 2026-03-09 -- Completed plan 02-02 (variable scroll physics and lazy loading)
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-03-09T15:18:00Z"
+last_activity: 2026-03-09 -- Completed plan 03-01 (R3F canvas foundation with cinematic lighting)
 progress:
   total_phases: 10
   completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 5
+  completed_plans: 5
   percent: 20
 ---
 
@@ -25,19 +25,19 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 
 ## Current Position
 
-Phase: 3 of 10 (Monolith R3F) -- NOT STARTED
-Plan: 0 of ? in current phase
+Phase: 3 of 10 (Monolith R3F) -- IN PROGRESS
+Plan: 1 of 3 in current phase
 Status: In Progress
-Last activity: 2026-03-09 -- Completed plan 02-02 (variable scroll physics and lazy loading)
+Last activity: 2026-03-09 -- Completed plan 03-01 (R3F canvas foundation with cinematic lighting)
 
 Progress: [██░░░░░░░░] 20%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 3min
-- Total execution time: 0.22 hours
+- Total plans completed: 5
+- Average duration: 4min
+- Total execution time: 0.30 hours
 
 **By Phase:**
 
@@ -45,9 +45,10 @@ Progress: [██░░░░░░░░] 20%
 |-------|-------|-------|----------|
 | 01 | 2 | 8min | 4min |
 | 02 | 2 | 5min | 2.5min |
+| 03 | 1 | 7min | 7min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (4min), 01-02 (4min), 02-01 (2min), 02-02 (3min)
+- Last 5 plans: 01-02 (4min), 02-01 (2min), 02-02 (3min), 03-01 (7min)
 - Trend: stable
 
 *Updated after each plan completion*
@@ -79,6 +80,9 @@ Recent decisions affecting current work:
 - [02-02]: Transition resistance uses sine-curve build with rapid release for tactile pop-through
 - [02-02]: LazySection never unmounts once mounted to preserve ScrollTrigger measurements
 - [02-02]: LazySection children optional for structural preparation before content phases
+- [03-01]: Client wrapper pattern for SSR-false dynamic import (Next.js 16 disallows ssr:false in Server Components)
+- [03-01]: preserveDrawingBuffer for WebGL context to enable screenshot-based test verification
+- [03-01]: useRef+useFrame for animation values, never useState in R3F components
 
 ### Pending Todos
 
@@ -87,10 +91,11 @@ None yet.
 ### Blockers/Concerns
 
 - Lenis+GSAP bridge proven with 8 passing scroll e2e tests in Phase 2 (17 total)
-- Three.js r183 compatibility with R3F 9 needs verification at Phase 3 install time
+- Three.js r183 + R3F 9 compatibility verified -- works with Next.js 16
+- Pre-existing TypeScript error in VisuallyHidden.tsx blocks npm run build (logged in deferred-items.md)
 
 ## Session Continuity
 
-Last session: 2026-03-09T13:24:00Z
-Stopped at: Completed 02-02-PLAN.md
-Resume file: .planning/phases/02-scroll-engine/02-02-SUMMARY.md
+Last session: 2026-03-09T15:18:00Z
+Stopped at: Completed 03-01-PLAN.md
+Resume file: .planning/phases/03-r3f-canvas-monolith-foundation/03-01-SUMMARY.md

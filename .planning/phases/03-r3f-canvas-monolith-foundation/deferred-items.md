@@ -1,0 +1,1 @@
+- **VisuallyHidden.tsx TypeScript error**: Pre-existing type error in `src/components/VisuallyHidden.tsx:9` -- JSX tag's children prop expects type 'never'. Not caused by Phase 3 changes. Blocks `npm run build` but not dev server or tests.

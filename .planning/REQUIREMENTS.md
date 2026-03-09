@@ -10,7 +10,7 @@
 - [x] **FOUND-01**: Site loads on a dark warm background (#0A0A0A) with editorial serif + sans-serif typography
 - [x] **FOUND-02**: Smooth scroll via Lenis synced with GSAP ScrollTrigger without desync
 - [x] **FOUND-03**: Mutable scroll store drives all 60fps values (never React state)
-- [ ] **FOUND-04**: Fixed R3F Canvas behind scrollable DOM sections
+- [x] **FOUND-04**: Fixed R3F Canvas behind scrollable DOM sections
 - [x] **FOUND-05**: prefers-reduced-motion detected and respected from first render
 - [x] **FOUND-06**: SSR-safe boundaries -- all WebGL/audio components client-only
 
@@ -21,7 +21,7 @@
 - [ ] **MONO-03**: Imperceptible slow rotation
 - [ ] **MONO-04**: Amber fresnel edge glow that intensifies with morph
 - [ ] **MONO-05**: Final form still suggests unseen geometry -- never fully resolved
-- [ ] **MONO-06**: Cinematic single-source warm lighting with subtle breathing
+- [x] **MONO-06**: Cinematic single-source warm lighting with subtle breathing
 
 ### Scroll Navigation
 
@@ -154,13 +154,13 @@
 | SCRL-05 | Phase 2 | Complete |
 | PERF-02 | Phase 2 | Complete |
 | PERF-03 | Phase 2 | Complete |
-| FOUND-04 | Phase 3 | Pending |
+| FOUND-04 | Phase 3 | Complete |
 | MONO-01 | Phase 3 | Pending |
 | MONO-02 | Phase 3 | Pending |
 | MONO-03 | Phase 3 | Pending |
 | MONO-04 | Phase 3 | Pending |
 | MONO-05 | Phase 3 | Pending |
-| MONO-06 | Phase 3 | Pending |
+| MONO-06 | Phase 3 | Complete |
 | SURF-01 | Phase 4 | Pending |
 | SURF-02 | Phase 4 | Pending |
 | SURF-03 | Phase 4 | Pending |
