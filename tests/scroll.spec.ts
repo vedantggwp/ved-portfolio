@@ -177,6 +177,49 @@ test.describe('Scroll Engine', () => {
     expect(results.t1Release).toBeGreaterThan(results.t1MidDesc)
   })
 
+  test('lazy -- sections mount children when approaching viewport', async ({
+    page,
+  }) => {
+    await page.goto('/')
+    await page.waitForLoadState('domcontentloaded')
+    await page.waitForTimeout(1000)
+
+    // Surface section should NOT have a LazySection wrapper (always loaded)
+    const surfaceLazy = await page.evaluate(() => {
+      const surface = document.getElementById('surface')
+      return surface?.querySelector('[data-lazy-mounted]') !== null
+    })
+    expect(surfaceLazy).toBe(false)
+
+    // Nearby sections should have mounted due to 200% rootMargin
+    // (within 2 viewports of the top)
+    const transition1Mounted = await page.evaluate(() => {
+      const section = document.getElementById('transition-1')
+      const lazy = section?.querySelector('[data-lazy-mounted]')
+      return lazy !== null
+    })
+    expect(transition1Mounted).toBe(true)
+
+    // Far-away sections should NOT yet be mounted
+    const contactMounted = await page.evaluate(() => {
+      const section = document.getElementById('contact')
+      const lazy = section?.querySelector('[data-lazy-mounted]')
+      return lazy !== null
+    })
+    expect(contactMounted).toBe(false)
+
+    // Scroll towards projects section
+    await scrollToSection(page, 'projects')
+
+    // After scrolling, projects should now be mounted
+    const projectsMounted = await page.evaluate(() => {
+      const section = document.getElementById('projects')
+      const lazy = section?.querySelector('[data-lazy-mounted]')
+      return lazy !== null
+    })
+    expect(projectsMounted).toBe(true)
+  })
+
   test('pin -- content sections pin during scroll', async ({ page }) => {
     await page.goto('/')
     await page.waitForLoadState('domcontentloaded')
