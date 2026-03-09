@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Scaffold + Fonts + A11Y Primitives** - Next.js project with typography, dark palette, SSR-safe boundaries, and accessibility foundations
 - [x] **Phase 2: Scroll Engine** - Lenis + GSAP ScrollTrigger with mutable scroll store, variable physics, and progressive loading (completed 2026-03-09)
-- [ ] **Phase 3: R3F Canvas + Monolith Foundation** - Fixed canvas layer with GLSL monolith geometry, scroll-driven morph, and cinematic lighting
+- [x] **Phase 3: R3F Canvas + Monolith Foundation** - Fixed canvas layer with GLSL monolith geometry, scroll-driven morph, and cinematic lighting (completed 2026-03-09)
 - [ ] **Phase 4: Surface Layer** - Provocation text over the monolith with scroll-linked fade
 - [ ] **Phase 5: Mid-Depth Layer** - Three depth pockets with per-pocket color shifts and monolith evolution
 - [ ] **Phase 6: Transitions** - Pressure-change zones between layers with scroll resistance and visual effects
@@ -182,7 +182,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 & 9 (paral
 |-------|----------------|--------|-----------|
 | 1. Scaffold + Fonts + A11Y Primitives | 0/2 | Not started | - |
 | 2. Scroll Engine | 2/2 | Complete   | 2026-03-09 |
-| 3. R3F Canvas + Monolith Foundation | 1/2 | In Progress|  |
+| 3. R3F Canvas + Monolith Foundation | 2/2 | Complete   | 2026-03-09 |
 | 4. Surface Layer | 0/1 | Not started | - |
 | 5. Mid-Depth Layer | 0/2 | Not started | - |
 | 6. Transitions | 0/1 | Not started | - |

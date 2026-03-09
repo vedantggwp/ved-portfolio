@@ -16,11 +16,11 @@
 
 ### Monolith
 
-- [ ] **MONO-01**: 3D obelisk geometry with custom GLSL vertex/fragment shaders
-- [ ] **MONO-02**: Monolith morphs from abstract/minimal to complex/faceted driven by scroll progress
-- [ ] **MONO-03**: Imperceptible slow rotation
-- [ ] **MONO-04**: Amber fresnel edge glow that intensifies with morph
-- [ ] **MONO-05**: Final form still suggests unseen geometry -- never fully resolved
+- [x] **MONO-01**: 3D obelisk geometry with custom GLSL vertex/fragment shaders
+- [x] **MONO-02**: Monolith morphs from abstract/minimal to complex/faceted driven by scroll progress
+- [x] **MONO-03**: Imperceptible slow rotation
+- [x] **MONO-04**: Amber fresnel edge glow that intensifies with morph
+- [x] **MONO-05**: Final form still suggests unseen geometry -- never fully resolved
 - [x] **MONO-06**: Cinematic single-source warm lighting with subtle breathing
 
 ### Scroll Navigation
@@ -155,11 +155,11 @@
 | PERF-02 | Phase 2 | Complete |
 | PERF-03 | Phase 2 | Complete |
 | FOUND-04 | Phase 3 | Complete |
-| MONO-01 | Phase 3 | Pending |
-| MONO-02 | Phase 3 | Pending |
-| MONO-03 | Phase 3 | Pending |
-| MONO-04 | Phase 3 | Pending |
-| MONO-05 | Phase 3 | Pending |
+| MONO-01 | Phase 3 | Complete |
+| MONO-02 | Phase 3 | Complete |
+| MONO-03 | Phase 3 | Complete |
+| MONO-04 | Phase 3 | Complete |
+| MONO-05 | Phase 3 | Complete |
 | MONO-06 | Phase 3 | Complete |
 | SURF-01 | Phase 4 | Pending |
 | SURF-02 | Phase 4 | Pending |

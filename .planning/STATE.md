@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-03-09T15:18:00Z"
-last_activity: 2026-03-09 -- Completed plan 03-01 (R3F canvas foundation with cinematic lighting)
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-03-09T15:28:00Z"
+last_activity: 2026-03-09 -- Completed plan 03-02 (GLSL monolith with scroll-driven morph and fresnel glow)
 progress:
   total_phases: 10
   completed_phases: 2
-  total_plans: 5
-  completed_plans: 5
-  percent: 20
+  total_plans: 6
+  completed_plans: 6
+  percent: 24
 ---
 
 # Project State
@@ -26,18 +26,18 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 ## Current Position
 
 Phase: 3 of 10 (Monolith R3F) -- IN PROGRESS
-Plan: 1 of 3 in current phase
-Status: In Progress
-Last activity: 2026-03-09 -- Completed plan 03-01 (R3F canvas foundation with cinematic lighting)
+Plan: 2 of 2 in current phase
+Status: Complete
+Last activity: 2026-03-09 -- Completed plan 03-02 (GLSL monolith with scroll-driven morph and fresnel glow)
 
-Progress: [██░░░░░░░░] 20%
+Progress: [██▒░░░░░░░] 24%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 4min
-- Total execution time: 0.30 hours
+- Total plans completed: 6
+- Average duration: 5min
+- Total execution time: 0.42 hours
 
 **By Phase:**
 
@@ -45,10 +45,10 @@ Progress: [██░░░░░░░░] 20%
 |-------|-------|-------|----------|
 | 01 | 2 | 8min | 4min |
 | 02 | 2 | 5min | 2.5min |
-| 03 | 1 | 7min | 7min |
+| 03 | 2 | 14min | 7min |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (4min), 02-01 (2min), 02-02 (3min), 03-01 (7min)
+- Last 5 plans: 01-02 (4min), 02-01 (2min), 02-02 (3min), 03-01 (7min), 03-02 (7min)
 - Trend: stable
 
 *Updated after each plan completion*
@@ -83,6 +83,9 @@ Recent decisions affecting current work:
 - [03-01]: Client wrapper pattern for SSR-false dynamic import (Next.js 16 disallows ssr:false in Server Components)
 - [03-01]: preserveDrawingBuffer for WebGL context to enable screenshot-based test verification
 - [03-01]: useRef+useFrame for animation values, never useState in R3F components
+- [03-02]: Embedded Ashima simplex 3D noise inline in vertex shader (~60 lines) rather than glslify
+- [03-02]: Finite-difference normal correction over dFdx/dFdy for accurate fresnel on deformed geometry
+- [03-02]: Morph capped at 0.85 for primary displacement; secondary layer uses full progress for hidden geometry hint
 
 ### Pending Todos
 
@@ -96,6 +99,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-09T15:18:00Z
-Stopped at: Completed 03-01-PLAN.md
-Resume file: .planning/phases/03-r3f-canvas-monolith-foundation/03-01-SUMMARY.md
+Last session: 2026-03-09T15:28:00Z
+Stopped at: Completed 03-02-PLAN.md
+Resume file: .planning/phases/03-r3f-canvas-monolith-foundation/03-02-SUMMARY.md
