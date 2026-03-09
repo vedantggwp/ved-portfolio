@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { DM_Serif_Display, Inter } from 'next/font/google'
 import { SkipLinks } from '@/components/SkipLinks'
 import { ScrollEngine } from '@/components/ScrollEngine'
+import { R3FCanvasLoader } from '@/components/R3FCanvasLoader'
 import './globals.css'
 
 const dmSerif = DM_Serif_Display({
@@ -31,8 +32,9 @@ export default function RootLayout({
     <html lang="en" className={`${dmSerif.variable} ${inter.variable}`}>
       <body>
         <SkipLinks />
+        <R3FCanvasLoader />
         <ScrollEngine>
-          <main>{children}</main>
+          <main style={{ position: 'relative', zIndex: 1 }}>{children}</main>
         </ScrollEngine>
       </body>
     </html>
