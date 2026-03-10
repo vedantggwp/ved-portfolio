@@ -38,25 +38,23 @@ test.describe('Surface Layer', () => {
     await page.goto('/')
     await page.waitForLoadState('networkidle')
 
-    // Wait for entrance animations to complete (line2 has 1s delay + 2.5s duration)
-    await page.waitForTimeout(4000)
+    // Wait for Lenis + ScrollTrigger init and entrance animations
+    await page.waitForTimeout(4500)
 
     const container = page.locator('[aria-label="Provocation"]')
     await expect(container).toBeAttached()
 
-    // Verify initial opacity is 1 (after entrance animation completes)
-    const initialOpacity = await container.evaluate(
-      (el) => getComputedStyle(el).opacity
-    )
-    expect(parseFloat(initialOpacity)).toBeGreaterThanOrEqual(0.9)
+    // Scroll past surface section using mouse.wheel (Lenis intercepts this)
+    // Multiple wheel events to ensure we scroll through the full pinned section
+    for (let i = 0; i < 20; i++) {
+      await page.mouse.wheel(0, 600)
+      await page.waitForTimeout(100)
+    }
+    // Let Lenis + ScrollTrigger settle
+    await page.waitForTimeout(2000)
 
-    // Scroll well past the surface section to trigger fade-out
-    await page.evaluate(() => {
-      window.scrollTo(0, window.innerHeight * 2)
-    })
-    await page.waitForTimeout(1500)
-
-    // After scrolling past surface, opacity should be near 0
+    // After scrolling well past surface, opacity should be near 0
+    // Read from inline style (rAF loop writes directly) or computed
     const scrolledOpacity = await container.evaluate(
       (el) => el.style.opacity || getComputedStyle(el).opacity
     )

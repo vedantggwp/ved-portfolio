@@ -1,0 +1,79 @@
+/* === Provocation Typography & Animation === */
+
+/* Surface section needs relative positioning for absolute child */
+:global(#surface) {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated variant (default) */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  will-change: transform, opacity;
+  z-index: 1;
+  width: 90%;
+  max-width: 48rem;
+}
+
+/* Reduced-motion / static variant */
+.static {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  opacity: 1;
+  z-index: 1;
+  width: 90%;
+  max-width: 48rem;
+}
+
+/* Shared line styles */
+.line {
+  font-family: var(--font-provocation), 'Georgia', serif;
+  color: #F5F0E8;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+/* Animated lines start invisible */
+.container .line {
+  opacity: 0;
+}
+
+/* Line 1: fade in after 0.5s delay */
+.line1 {
+  composes: line;
+  animation: fadeIn 2.5s ease-out 0.5s forwards;
+}
+
+/* Line 2: fade in after 1s delay (0.5s stagger) */
+.line2 {
+  composes: line;
+  margin-top: 0.5em;
+  animation: fadeIn 2.5s ease-out 1s forwards;
+}
+
+/* Static variant: lines always visible, no animation */
+.static .line {
+  opacity: 1;
+  animation: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
