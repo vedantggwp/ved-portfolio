@@ -33,9 +33,9 @@
 
 ### Surface Layer
 
-- [ ] **SURF-01**: Provocation text (uniquely Ved) fades in over the monolith -- not a bio
-- [ ] **SURF-02**: Text fades up and out as user begins scrolling
-- [ ] **SURF-03**: No name, title, or CTA on surface -- just the provocation
+- [x] **SURF-01**: Provocation text (uniquely Ved) fades in over the monolith -- not a bio
+- [x] **SURF-02**: Text fades up and out as user begins scrolling
+- [x] **SURF-03**: No name, title, or CTA on surface -- just the provocation
 
 ### Mid-Depth Layer
 
@@ -161,9 +161,9 @@
 | MONO-04 | Phase 3 | Complete |
 | MONO-05 | Phase 3 | Complete |
 | MONO-06 | Phase 3 | Complete |
-| SURF-01 | Phase 4 | Pending |
-| SURF-02 | Phase 4 | Pending |
-| SURF-03 | Phase 4 | Pending |
+| SURF-01 | Phase 4 | Complete |
+| SURF-02 | Phase 4 | Complete |
+| SURF-03 | Phase 4 | Complete |
 | MID-01 | Phase 5 | Pending |
 | MID-02 | Phase 5 | Pending |
 | MID-03 | Phase 5 | Pending |

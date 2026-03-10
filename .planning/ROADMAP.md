@@ -84,7 +84,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 04-01: Provocation text overlay with scroll-linked fade animation
+- [x] 04-01: Provocation text overlay with scroll-linked fade animation (completed 2026-03-10)
 
 ### Phase 5: Mid-Depth Layer
 **Goal**: Three depth pockets reveal cross-domain pattern recognition
@@ -183,7 +183,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 & 9 (paral
 | 1. Scaffold + Fonts + A11Y Primitives | 0/2 | Not started | - |
 | 2. Scroll Engine | 2/2 | Complete   | 2026-03-09 |
 | 3. R3F Canvas + Monolith Foundation | 2/2 | Complete   | 2026-03-09 |
-| 4. Surface Layer | 0/1 | Not started | - |
+| 4. Surface Layer | 1/1 | Complete   | 2026-03-10 |
 | 5. Mid-Depth Layer | 0/2 | Not started | - |
 | 6. Transitions | 0/1 | Not started | - |
 | 7. Deep Layer + Floor | 0/2 | Not started | - |

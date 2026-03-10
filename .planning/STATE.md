@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Phase 4 context gathered
-last_updated: "2026-03-09T23:40:23.000Z"
-last_activity: 2026-03-09 -- Completed plan 03-02 (GLSL monolith with scroll-driven morph and fresnel glow)
+status: in-progress
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-03-10T17:41:30.000Z"
+last_activity: 2026-03-10 -- Completed plan 04-01 (Provocation overlay with Instrument Serif and scroll-linked animation)
 progress:
   total_phases: 10
   completed_phases: 3
-  total_plans: 6
-  completed_plans: 6
-  percent: 24
+  total_plans: 7
+  completed_plans: 7
+  percent: 28
 ---
 
 # Project State
@@ -21,23 +21,23 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-08)
 
 **Core value:** The site must communicate "I don't build what's expected. I build what's needed" through its structure -- the experience is proof of cross-domain thinking.
-**Current focus:** Phase 3: Monolith R3F
+**Current focus:** Phase 4: Surface Layer
 
 ## Current Position
 
-Phase: 3 of 10 (Monolith R3F) -- IN PROGRESS
-Plan: 2 of 2 in current phase
+Phase: 4 of 10 (Surface Layer) -- IN PROGRESS
+Plan: 1 of 1 in current phase
 Status: Complete
-Last activity: 2026-03-09 -- Completed plan 03-02 (GLSL monolith with scroll-driven morph and fresnel glow)
+Last activity: 2026-03-10 -- Completed plan 04-01 (Provocation overlay with Instrument Serif and scroll-linked animation)
 
-Progress: [██▒░░░░░░░] 24%
+Progress: [██▒░░░░░░░] 28%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
+- Total plans completed: 7
 - Average duration: 5min
-- Total execution time: 0.42 hours
+- Total execution time: 0.55 hours
 
 **By Phase:**
 
@@ -46,9 +46,10 @@ Progress: [██▒░░░░░░░] 24%
 | 01 | 2 | 8min | 4min |
 | 02 | 2 | 5min | 2.5min |
 | 03 | 2 | 14min | 7min |
+| 04 | 1 | 8min | 8min |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (4min), 02-01 (2min), 02-02 (3min), 03-01 (7min), 03-02 (7min)
+- Last 5 plans: 02-01 (2min), 02-02 (3min), 03-01 (7min), 03-02 (7min), 04-01 (8min)
 - Trend: stable
 
 *Updated after each plan completion*
@@ -86,6 +87,10 @@ Recent decisions affecting current work:
 - [03-02]: Embedded Ashima simplex 3D noise inline in vertex shader (~60 lines) rather than glslify
 - [03-02]: Finite-difference normal correction over dFdx/dFdy for accurate fresnel on deformed geometry
 - [03-02]: Morph capped at 0.85 for primary displacement; secondary layer uses full progress for hidden geometry hint
+- [04-01]: Instrument Serif Regular 400 for provocation font -- Teenage Engineering aesthetic, designed for headlines
+- [04-01]: Couplet: "The closer you look at one thing, / the more it resembles everything else."
+- [04-01]: CSS animationend gates rAF scroll loop start -- prevents scroll interference during entrance
+- [04-01]: Direct style mutation (el.style.transform/opacity) in rAF for zero-rerender scroll animation
 
 ### Pending Todos
 
@@ -99,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-09T23:40:22.997Z
-Stopped at: Phase 4 context gathered
-Resume file: .planning/phases/04-surface-layer/04-CONTEXT.md
+Last session: 2026-03-10T17:41:30Z
+Stopped at: Completed 04-01-PLAN.md
+Resume file: .planning/phases/04-surface-layer/04-01-SUMMARY.md
