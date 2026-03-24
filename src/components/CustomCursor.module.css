@@ -1,0 +1,44 @@
+.cursorContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--wex);
+  box-shadow: 0 0 12px var(--wex-glow);
+  margin-left: -4px;
+  margin-top: -4px;
+  will-change: transform;
+}
+
+.trail {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--wex);
+  margin-left: -2px;
+  margin-top: -2px;
+  will-change: transform;
+}
+
+@media (pointer: coarse) {
+  .cursorContainer {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursorContainer {
+    display: none;
+  }
+}

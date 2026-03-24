@@ -1,0 +1,227 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--void);
+}
+
+.sequenceContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Base text setups for the timeline */
+.textLayer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  max-width: 1200px;
+  opacity: 0;
+  visibility: hidden; /* GSAP will toggle this */
+}
+
+/* Step 1: I Connect Systems */
+.textQuas {
+  font-family: var(--font-cinzel);
+  font-size: clamp(2rem, 5vw, 6rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.textQuas span {
+  display: block;
+  color: var(--quas);
+  text-shadow: 0 0 20px var(--quas-glow);
+}
+
+/* Step 2: I Translate Between Worlds */
+.textExort {
+  font-family: var(--font-cinzel);
+  font-size: clamp(2.5rem, 6vw, 7rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+.textExort span {
+  color: var(--exort);
+  text-shadow: 0 0 30px var(--exort-glow);
+}
+
+/* Step 3: Final patterns text */
+.textFinal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  width: 100%;
+}
+
+.finalSmall {
+  font-family: var(--font-cinzel);
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.finalLarge {
+  font-family: var(--font-cinzel);
+  font-size: clamp(2.5rem, 6vw, 7rem);
+  color: var(--exort);
+  text-transform: uppercase;
+  text-shadow: 0 0 30px var(--exort-glow);
+  line-height: 1.1;
+  text-wrap: balance;
+  text-align: center;
+}
+
+/* Converging Orbs */
+.orbSystem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.summonOrb {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(4px);
+  transform: scale(0.5);
+  transform-origin: center center;
+}
+
+.orb1 { background: var(--quas); box-shadow: 0 0 40px 10px var(--quas-glow); left: 10%; top: 20%; }
+.orb2 { background: var(--wex); box-shadow: 0 0 40px 10px var(--wex-glow); right: 10%; top: 30%; }
+.orb3 { background: var(--exort); box-shadow: 0 0 40px 10px var(--exort-glow); left: 50%; bottom: 10%; }
+
+/* The Collision Flash */
+.collisionFlash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FFF;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  mix-blend-mode: overlay;
+}
+
+/* Background Spell Circle from before (spins very slowly in back) */
+.spellCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150vw;
+  height: 150vw;
+  max-width: 1200px;
+  max-height: 1200px;
+  opacity: 0.15;
+  z-index: 1;
+  pointer-events: none;
+  animation: spin 60s linear infinite;
+}
+
+.circleSvg {
+  width: 100%;
+  height: 100%;
+  animation: rotateSlow 60s linear infinite;
+  fill: none;
+  stroke-width: 1;
+}
+
+/* Invoker Cinematic Visual */
+.invokerLikeness {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 5;
+  mask-image: radial-gradient(circle at center, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 70%);
+}
+
+.ringOuter { stroke: var(--wex-glow); stroke-dasharray: 4 12; }
+.ringMiddle { stroke: var(--quas-glow); stroke-width: 0.5; }
+.ringInner { stroke: var(--exort-glow); stroke-dasharray: 1 5; }
+.tick { stroke: var(--quas-dim); stroke-width: 1.5; }
+
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 10;
+  opacity: 0.8;
+}
+
+.scrollLabel {
+  font-family: var(--font-jetbrains);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--wex);
+  text-transform: uppercase;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--wex), transparent);
+  animation: pulseLine 2s ease-in-out infinite;
+}
+
+@keyframes pulseLine {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  50.1% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .textQuas { font-size: 2rem; }
+  .textExort { font-size: 2.2rem; }
+  .textFinal { gap: 0.5em; }
+  .finalLarge { font-size: 3.5rem; }
+  .spellCircle { width: 200vw; height: 200vw; }
+}

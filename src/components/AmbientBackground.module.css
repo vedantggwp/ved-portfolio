@@ -1,0 +1,82 @@
+.ambientContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Behind everything */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Invoker Image */
+.invokerFigure {
+  position: absolute;
+  bottom: -5vh; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 1400px;
+  height: 100vh;
+  object-fit: cover;
+  object-position: top center;
+  opacity: 0.15; /* Barely visible arcane presence */
+  mix-blend-mode: screen;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
+  -webkit-mask-image: radial-gradient(ellipse at top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* Ambient Floating Orbs */
+.ambientOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.25;
+  will-change: transform;
+}
+
+/* Using CSS keyframes for a simple floating effect to save GSAP performance */
+.quasOrb {
+  width: 40vw;
+  height: 40vw;
+  background: var(--quas);
+  top: -10%;
+  left: -10%;
+  animation: floatQuas 24s ease-in-out infinite alternate;
+}
+
+.wexOrb {
+  width: 30vw;
+  height: 30vw;
+  background: var(--wex);
+  bottom: 20%;
+  right: -5%;
+  animation: floatWex 28s ease-in-out infinite alternate-reverse;
+}
+
+.exortOrb {
+  width: 35vw;
+  height: 35vw;
+  background: var(--exort);
+  top: 40%;
+  left: 30%;
+  animation: floatExort 20s ease-in-out infinite alternate;
+}
+
+@keyframes floatQuas {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10vw, 20vh) scale(1.1); }
+  100% { transform: translate(5vw, 40vh) scale(0.9); }
+}
+
+@keyframes floatWex {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-20vw, 10vh) scale(1.2); }
+  100% { transform: translate(-10vw, -30vh) scale(0.8); }
+}
+
+@keyframes floatExort {
+  0% { transform: translate(0, 0) scale(0.9); }
+  50% { transform: translate(15vw, -15vh) scale(1.1); }
+  100% { transform: translate(-15vw, -5vh) scale(1); }
+}

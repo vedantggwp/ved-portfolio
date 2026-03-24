@@ -74,10 +74,7 @@ test.describe('Scroll Engine', () => {
     expect(sectionIds).toEqual([
       'surface',
       'transition-1',
-      'pocket-1',
-      'pocket-2',
-      'pocket-3',
-      'transition-2',
+      'narrative',
       'projects',
       'contact',
     ])
@@ -117,17 +114,17 @@ test.describe('Scroll Engine', () => {
       return pinSpacer ? pinSpacer.offsetHeight : el.offsetHeight
     })
 
-    // Scroll to pocket-1 and measure its scroll distance
-    await scrollToSection(page, 'pocket-1')
-    const pocketEnd = await page.evaluate(() => {
-      const el = document.getElementById('pocket-1')
+    // Scroll to narrative and measure its scroll distance
+    await scrollToSection(page, 'narrative')
+    const narrativeEnd = await page.evaluate(() => {
+      const el = document.getElementById('narrative')
       if (!el) return 0
       const pinSpacer = el.closest('.pin-spacer') as HTMLElement | null
       return pinSpacer ? pinSpacer.offsetHeight : el.offsetHeight
     })
 
-    // Pocket-1 should require more scroll distance than surface (1.5x vs 1x)
-    expect(pocketEnd).toBeGreaterThan(surfaceEnd)
+    // Narrative (400vh) should require more scroll distance than surface (100vh + pin)
+    expect(narrativeEnd).toBeGreaterThan(surfaceEnd)
   })
 
   test('membrane -- transition resistance function produces correct values', async ({
@@ -153,8 +150,6 @@ test.describe('Scroll Engine', () => {
         nonTransition: getResistance(0.5, 1, 'surface'),
         // Transition-1 mid-build descending: should be < 1
         t1MidDesc: getResistance(0.4, 1, 'transition-1'),
-        // Transition-2 mid-build descending: should be < t1 (heavier)
-        t2MidDesc: getResistance(0.4, 1, 'transition-2'),
         // Transition-1 ascending: should have less resistance than descending
         t1MidAsc: getResistance(0.4, -1, 'transition-1'),
         // Transition-1 release phase: should be closer to 1 (the "pop")
@@ -169,8 +164,6 @@ test.describe('Scroll Engine', () => {
     expect(results.nonTransition).toBe(1)
     // Transition-1 descending build: resistance applied (< 1)
     expect(results.t1MidDesc).toBeLessThan(1)
-    // Transition-2 is heavier than Transition-1 (lower value = more resistance)
-    expect(results.t2MidDesc).toBeLessThan(results.t1MidDesc)
     // Ascending has less resistance than descending (value closer to 1)
     expect(results.t1MidAsc).toBeGreaterThan(results.t1MidDesc)
     // Release phase should be closer to 1 (popping through)
@@ -225,27 +218,27 @@ test.describe('Scroll Engine', () => {
     await page.waitForLoadState('domcontentloaded')
     await page.waitForTimeout(1000)
 
-    // Scroll pocket-1 into view
-    await scrollToSection(page, 'pocket-1')
+    // Scroll narrative into view
+    await scrollToSection(page, 'narrative')
 
-    // Get initial position
+    // Get initial position of the sticky viewport inside narrative
     const topBefore = await page.evaluate(() => {
-      const el = document.getElementById('pocket-1')
+      // The DOM is section#narrative -> div.track -> div.stickyViewport
+      const el = document.querySelector('#narrative > div > div')
       return el ? el.getBoundingClientRect().top : -1
     })
 
-    // Scroll a bit more -- pinned section should stay near top
+    // Scroll a bit more -- sticky viewport should stay near top
     await page.mouse.wheel(0, 200)
     await page.waitForTimeout(500)
 
     const topAfter = await page.evaluate(() => {
-      const el = document.getElementById('pocket-1')
+      const el = document.querySelector('#narrative > div > div')
       return el ? el.getBoundingClientRect().top : -1
     })
 
-    // If pinned, top should remain near 0 (within some tolerance)
-    // Both readings should be near the top of the viewport
-    expect(Math.abs(topBefore)).toBeLessThan(200)
-    expect(Math.abs(topAfter)).toBeLessThan(200)
+    // If perfectly sticky, it should remain exactly at 0
+    expect(Math.abs(topBefore)).toBeLessThan(50)
+    expect(Math.abs(topAfter)).toBeLessThan(50)
   })
 })

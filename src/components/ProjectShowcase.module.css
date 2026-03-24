@@ -1,0 +1,225 @@
+.section {
+  padding: var(--space-xl) var(--space-md);
+  position: relative;
+  z-index: 2;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+/* === Section Header === */
+.sectionHeader {
+  margin-top: calc(var(--space-2xl) * 1.5); /* Asymmetric optical anchor */
+  margin-bottom: var(--space-xl);
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-4xl);
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+
+.sectionSubtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  max-width: 50ch;
+}
+
+.archiveLink {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--wex);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--void-border);
+  transition: color 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+
+.archiveLink:hover {
+  color: var(--wex-bright);
+  border-color: var(--wex);
+}
+
+/* === Project Grid === */
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-md);
+}
+
+/* === Project Card — Grimoire Entry === */
+.projectCard {
+  background: var(--void-surface);
+  border: 1px solid var(--void-border);
+  padding: var(--space-md);
+  position: relative;
+  transition: border-color 0.4s var(--ease-arcane), box-shadow 0.4s var(--ease-arcane), transform 0.4s var(--ease-arcane);
+  cursor: default;
+}
+
+/* Rune corner decorations */
+.projectCard::before,
+.projectCard::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-style: solid;
+  transition: border-color 0.4s;
+}
+
+.projectCard::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+  border-color: var(--quas-dim);
+}
+
+.projectCard::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+  border-color: var(--quas-dim);
+}
+
+.projectCard:hover {
+  border-color: var(--wex);
+  box-shadow: 0 0 30px rgba(155, 109, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  animation: breatheGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes breatheGlow {
+  0% { box-shadow: 0 0 20px rgba(155, 109, 255, 0.1), inset 0 0 0 var(--wex-dim); }
+  100% { box-shadow: 0 0 40px rgba(155, 109, 255, 0.3), inset 0 0 20px var(--wex-dim); }
+}
+
+.projectCard:hover::before,
+.projectCard:hover::after {
+  border-color: var(--wex);
+}
+
+/* === Card Header === */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.number {
+  font-family: var(--font-mono);
+  font-size: var(--text-3xl);
+  font-weight: 400;
+  color: var(--exort);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-shadow: 0 0 20px var(--exort-glow);
+}
+
+.category {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--quas);
+  padding: 4px 10px;
+  border: 1px solid var(--quas-dim);
+  background: var(--quas-dim);
+}
+
+/* === Title === */
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-2xl);
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+}
+
+/* === Description === */
+.description {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+/* === Tech Stack — Arcane Sigils === */
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: var(--space-md);
+}
+
+.techTag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 3px 8px;
+  border: 1px solid var(--void-border);
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.projectCard:hover .techTag {
+  border-color: var(--void-elevated);
+}
+
+/* === Links === */
+.links {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.link {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  padding-bottom: 2px;
+  transition: color 0.3s;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--wex);
+  transition: width 0.4s var(--ease-out-expo);
+}
+
+.link:hover {
+  color: var(--wex);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .projectGrid {
+    grid-template-columns: 1fr;
+  }
+}

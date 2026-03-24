@@ -59,15 +59,13 @@ test.describe('Accessibility', () => {
     const contact = page.locator('section#contact')
     await expect(contact).toHaveAttribute('role', 'contentinfo')
 
-    // Pocket sections have aria-label
-    for (const id of ['pocket-1', 'pocket-2', 'pocket-3']) {
-      const section = page.locator(`section#${id}`)
-      const label = await section.getAttribute('aria-label')
-      expect(label).toBeTruthy()
-    }
+    // Narrative section has label
+    const narrativeSection = page.locator('section#narrative')
+    const narrativeLabel = await narrativeSection.getAttribute('aria-label')
+    expect(narrativeLabel).toBeTruthy()
 
     // Transition sections have role="presentation"
-    for (const id of ['transition-1', 'transition-2']) {
+    for (const id of ['transition-1']) {
       const section = page.locator(`section#${id}`)
       await expect(section).toHaveAttribute('role', 'presentation')
     }
@@ -75,14 +73,12 @@ test.describe('Accessibility', () => {
     // Non-transition sections have visually-hidden h2 headings
     const nonTransitionIds = [
       'surface',
-      'pocket-1',
-      'pocket-2',
-      'pocket-3',
+      'narrative',
       'projects',
       'contact',
     ]
     for (const id of nonTransitionIds) {
-      const heading = page.locator(`section#${id} h2`)
+      const heading = page.locator(`section#${id} h2.visually-hidden`)
       await expect(heading).toBeAttached()
     }
   })
@@ -197,8 +193,9 @@ test.describe('Accessibility', () => {
     // Outline should be visible (not "none")
     expect(outlineStyle.outlineStyle).not.toBe('none')
 
-    // Outline color should be amber: rgb(196, 150, 74)
-    expect(outlineStyle.outlineColor).toBe('rgb(196, 150, 74)')
+    // Outline color should be gold: rgba(202, 138, 4, 0.6)
+    // The browser usually computes rgba exactly as provided
+    expect(outlineStyle.outlineColor).toBe('rgba(202, 138, 4, 0.6)')
 
     // Outline width should be 2px
     expect(outlineStyle.outlineWidth).toBe('2px')

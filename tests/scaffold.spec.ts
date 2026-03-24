@@ -9,21 +9,21 @@ test.describe('Scaffold @smoke', () => {
     const bgColor = await page.evaluate(() =>
       getComputedStyle(document.body).backgroundColor
     )
-    expect(bgColor).toBe('rgb(10, 10, 10)')
+    expect(bgColor).toBe('rgb(18, 16, 14)') // #12100E
 
-    // Assert body font-family contains Inter or sans-serif fallback
+    // Assert body font-family contains Jost or sans-serif fallback
     const bodyFont = await page.evaluate(() =>
       getComputedStyle(document.body).fontFamily
     )
-    expect(bodyFont).toMatch(/Inter|system-ui|sans-serif/)
+    expect(bodyFont).toMatch(/Jost|system-ui|sans-serif/)
 
-    // Assert h2 uses DM Serif Display or serif fallback
+    // Assert h2 uses Bodoni Moda or serif fallback
     const h2 = page.locator('h2').first()
     await expect(h2).toBeAttached()
     const h2Font = await h2.evaluate((el) =>
       getComputedStyle(el).fontFamily
     )
-    expect(h2Font).toMatch(/DM Serif Display|Georgia|serif/)
+    expect(h2Font).toMatch(/Bodoni Moda|Georgia|serif/)
   })
 
   test('SSR safe - no hydration errors (FOUND-06)', async ({ page }) => {
@@ -52,16 +52,13 @@ test.describe('Scaffold @smoke', () => {
     const expectedIds = [
       'surface',
       'transition-1',
-      'pocket-1',
-      'pocket-2',
-      'pocket-3',
-      'transition-2',
+      'narrative',
       'projects',
       'contact',
     ]
 
     const sections = page.locator('section')
-    await expect(sections).toHaveCount(8)
+    await expect(sections).toHaveCount(5)
 
     const ids = await sections.evaluateAll((els) =>
       els.map((el) => el.id)

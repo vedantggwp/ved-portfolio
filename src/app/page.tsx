@@ -1,16 +1,15 @@
-import { SECTIONS } from '@/lib/sections'
-import { SectionShell } from '@/components/SectionShell'
-import { LazySection } from '@/components/LazySection'
-import { Provocation } from '@/components/Provocation'
+import { Hero } from "@/components/Hero";
+import { ProjectShowcase } from "@/components/ProjectShowcase";
+import { BlogSection } from "@/components/BlogSection";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
-      {SECTIONS.map((section) => (
-        <SectionShell key={section.id} section={section}>
-          {section.id === 'surface' ? <Provocation /> : <LazySection />}
-        </SectionShell>
-      ))}
+      <Hero />
+      <ProjectShowcase />
+      <BlogSection />
+      <Footer />
     </>
-  )
+  );
 }

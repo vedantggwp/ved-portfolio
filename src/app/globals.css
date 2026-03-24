@@ -7,81 +7,149 @@
   padding: 0;
 }
 
-/* === Design Tokens === */
+/* === Design Tokens: The Invoker System === */
 :root {
-  /* Palette */
-  --color-bg: #0A0A0A;
-  --color-text: #F5F5F5;
-  --color-accent: #C4964A;
-  --color-text-muted: #A0A0A0;
+  /* Void — the dark base */
+  --void: #0A0A0F;
+  --void-surface: #12121A;
+  --void-elevated: #1A1A25;
+  --void-border: #2A2A3A;
+  --void-deep: #06060A;
 
-  /* Typography - fluid clamp() with ~1.25 Major Third ratio */
-  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-  --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
-  --text-base: clamp(1rem, 0.925rem + 0.4vw, 1.125rem);
-  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
-  --text-xl: clamp(1.25rem, 1.1rem + 0.65vw, 1.5rem);
+  /* Quas — Ice / Structure / Calm */
+  --quas: #4A9EBF;
+  --quas-dim: rgba(74, 158, 191, 0.12);
+  --quas-glow: rgba(74, 158, 191, 0.4);
+  --quas-bright: #6BC4E8;
+
+  /* Wex — Lightning / Energy / Motion */
+  --wex: #9B6DFF;
+  --wex-dim: rgba(155, 109, 255, 0.12);
+  --wex-glow: rgba(155, 109, 255, 0.4);
+  --wex-bright: #B694FF;
+
+  /* Exort — Fire / Power / Impact */
+  --exort: #E8A849;
+  --exort-dim: rgba(232, 168, 73, 0.12);
+  --exort-glow: rgba(232, 168, 73, 0.4);
+  --exort-bright: #F0C060;
+
+  /* Text hierarchy */
+  --text-primary: #E8E6E3;
+  --text-secondary: #8A8A9A;
+  --text-ghost: #4A4A5A;
+
+  /* Typography scale — fluid, generous */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.65vw, 1.625rem);
   --text-2xl: clamp(1.5rem, 1.25rem + 1vw, 2rem);
-  --text-3xl: clamp(2rem, 1.5rem + 1.5vw, 2.5rem);
-  --text-4xl: clamp(2.5rem, 1.75rem + 2vw, 3.5rem);
-  --text-display: clamp(3rem, 2rem + 3vw, 5rem);
+  --text-3xl: clamp(2rem, 1.5rem + 1.5vw, 3vw);
+  --text-4xl: clamp(2.5rem, 1.75rem + 2vw, 5vw);
+  --text-hero: clamp(3.5rem, 2rem + 10vw, 12vw);
 
   /* Font families (set by next/font CSS variables) */
-  --font-heading: var(--font-serif), 'Georgia', serif;
-  --font-body: var(--font-sans), system-ui, sans-serif;
+  --font-display: var(--font-cinzel), "Georgia", serif;
+  --font-body: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", monospace;
 
-  /* Focus */
-  --focus-ring-color: var(--color-accent);
+  /* Spacing — generous, deliberate */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 64px;
+  --space-xl: 120px;
+  --space-2xl: 200px;
+
+  /* Content width */
+  --content-width: min(1200px, 90vw);
+  --content-narrow: min(800px, 85vw);
+
+  /* Focus — exort energy */
+  --focus-ring-color: var(--exort-glow);
   --focus-ring-width: 2px;
-  --focus-ring-offset: 2px;
+  --focus-ring-offset: 4px;
 
-  /* Section */
-  --section-min-height: 100vh;
+  /* Animation */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-arcane: cubic-bezier(0.16, 1, 0.3, 1);
+  --reveal-duration: 0.8s;
+  --reveal-distance: 24px;
+  --glow-pulse: 2s ease-in-out infinite alternate;
 }
 
 /* === Base Styles === */
+html {
+  background: var(--void);
+  color: var(--text-primary);
+}
+
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--void);
+  color: var(--text-primary);
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: 1.6;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+}
+
+/* === Subtle Arcane Noise Overlay === */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
 }
 
 /* === Heading Typography === */
-h1,
-h2 {
-  font-family: var(--font-heading);
-  line-height: 1.2;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  text-wrap: balance;
 }
 
-h1 {
-  font-size: var(--text-display);
+h1 { font-size: var(--text-hero); letter-spacing: -0.02em; line-height: 1.05; }
+h2 { font-size: var(--text-4xl); letter-spacing: -0.01em; line-height: 1.1; }
+h3 { font-size: var(--text-3xl); letter-spacing: 0; }
+h4 { font-size: var(--text-2xl); letter-spacing: 0; }
+
+/* === Body Typography === */
+p {
+  max-width: 65ch;
+  line-height: 1.7;
+  text-wrap: pretty;
 }
 
-h2 {
-  font-size: var(--text-4xl);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-h3 {
-  font-size: var(--text-3xl);
+/* === Selection — exort fire === */
+::selection {
+  background: var(--exort);
+  color: var(--void);
 }
 
-h4 {
-  font-size: var(--text-2xl);
-}
-
-h5 {
-  font-size: var(--text-xl);
-}
-
-h6 {
-  font-size: var(--text-lg);
-}
-
-/* === Focus Styles === */
+/* === Focus Styles — arcane glow === */
 :focus-visible {
   outline: var(--focus-ring-width) solid var(--focus-ring-color);
   outline-offset: var(--focus-ring-offset);
@@ -123,10 +191,10 @@ h6 {
   left: 16px;
   z-index: 9999;
   padding: 8px 16px;
-  background: var(--color-accent);
-  color: var(--color-bg);
+  background: var(--exort);
+  color: var(--void);
   font-family: var(--font-body);
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
   border-radius: 4px;
 }
@@ -136,7 +204,8 @@ h6 {
 }
 
 /* === Lenis Smooth Scroll === */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 .lenis.lenis-smooth {
@@ -152,14 +221,117 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* === Reduced Motion: Proportional Section Heights === */
-@media (prefers-reduced-motion: reduce) {
-  #surface      { min-height: 100vh; }
-  #transition-1 { min-height: 50vh; }
-  #pocket-1,
-  #pocket-2,
-  #pocket-3     { min-height: 150vh; }
-  #transition-2 { min-height: 50vh; }
-  #projects     { min-height: 200vh; }
-  #contact      { min-height: 75vh; }
+/* === Reveal Animation Base === */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowFlash {
+  from {
+    text-shadow: 0 0 30px var(--exort-glow);
+  }
+  to {
+    text-shadow: 0 0 0px transparent;
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.revealed {
+  animation:
+    revealUp var(--reveal-duration) var(--ease-out-expo) forwards,
+    glowFlash 1.2s var(--ease-out-expo) forwards;
+}
+
+/* Staggered delays */
+.stagger-1 { animation-delay: 0ms; }
+.stagger-2 { animation-delay: 120ms; }
+.stagger-3 { animation-delay: 200ms; }
+.stagger-4 { animation-delay: 280ms; }
+.stagger-5 { animation-delay: 360ms; }
+
+/* === Monospace Accent === */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* === Arcane Decorative Utilities === */
+.rune-border {
+  border: 1px solid var(--void-border);
+  position: relative;
+}
+
+.rune-border::before,
+.rune-border::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--quas);
+  border-style: solid;
+}
+
+.rune-border::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+
+.rune-border::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+/* === Energy Glow Animations === */
+@keyframes pulseQuas {
+  0%, 100% { box-shadow: 0 0 8px var(--quas-dim); }
+  50% { box-shadow: 0 0 20px var(--quas-glow); }
+}
+
+@keyframes pulseWex {
+  0%, 100% { box-shadow: 0 0 8px var(--wex-dim); }
+  50% { box-shadow: 0 0 20px var(--wex-glow); }
+}
+
+@keyframes pulseExort {
+  0%, 100% { box-shadow: 0 0 8px var(--exort-dim); }
+  50% { box-shadow: 0 0 20px var(--exort-glow); }
+}
+
+@keyframes energyLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes slowRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Section separator — vertical energy line */
+.energy-separator {
+  width: 1px;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--quas),
+    transparent
+  );
+  margin: 0 auto;
+  opacity: 0.5;
 }
